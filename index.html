@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>træis — willkommen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --beige: #f4f1e9;
+  --beige-50: #faf8f3;
+  --navy: #2c3d4e;
+  --navy-300: #8d9aa9;
+  --navy-500: #5a6b7d;
+  --purple: #b580f4;
+  --border: rgba(44, 61, 78, 0.10);
+  --hairline: rgba(44, 61, 78, 0.06);
+  --font-display: "Red Hat Display", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-avenir: "Avenir Next", "Avenir", "Nunito Sans", -apple-system, sans-serif;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --shadow-md: 0 1px 3px rgba(44,61,78,0.05), 0 4px 16px rgba(44,61,78,0.04);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--beige);
+  color: var(--navy);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overscroll-behavior: none;
+}
+.app {
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--navy);
+}
+.logo-slot { height: 28px; display: inline-flex; align-items: center; }
+.logo-slot img { height: 100%; width: auto; display: block; }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(250, 248, 243, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.lang-toggle button {
+  border: none;
+  background: transparent;
+  color: var(--navy-300);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+}
+.lang-toggle button.active {
+  background: var(--navy);
+  color: var(--beige);
+}
+.help-btn {
+  width: 32px; height: 32px;
+  border-radius: 999px;
+  background: rgba(250, 248, 243, 0.85);
+  border: 1px solid var(--border);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--navy-500);
+}
+.help-btn svg { width: 14px; height: 14px; opacity: 0.75; }
+.main { flex: 1; padding: 24px 20px 40px; }
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 12vw, 64px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.headline-dot { color: var(--purple); }
+.lead {
+  font-family: var(--font-avenir);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--navy-500);
+  margin-bottom: 28px;
+}
+.code-card {
+  background: var(--beige-50);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: var(--shadow-md);
+}
+.code-input {
+  width: 100%;
+  height: 60px;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  background: #ffffff;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--navy);
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0 20px;
+  margin-bottom: 14px;
+  transition: all 200ms var(--ease-out);
+}
+.code-input::placeholder {
+  color: var(--navy-300);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  opacity: 0.6;
+}
+.code-input:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 4px rgba(44, 61, 78, 0.08);
+}
+.btn-primary {
+  background: var(--navy);
+  color: var(--beige);
+  border: 1px solid var(--navy);
+  border-radius: 14px;
+  padding: 16px 22px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  cursor: pointer;
+}
+.btn-primary svg { width: 14px; height: 14px; }
+.footer {
+  padding: 14px 20px calc(20px + env(safe-area-inset-bottom, 0));
+  font-size: 11px;
+  color: var(--navy-300);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.footer a {
+  color: var(--navy-300);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(141, 154, 169, 0.4);
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <span class="logo-slot"><img src="Logo_traeis.png" alt="træis"></span>
+    <div class="header-actions">
+      <div class="lang-toggle" role="group" aria-label="Sprache">
+        <button type="button" class="active">DE</button>
+        <button type="button">EN</button>
+      </div>
+      <button class="help-btn" type="button" title="Hilfe" aria-label="Hilfe">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <main class="main">
+    <h1 class="headline">willkommen<span class="headline-dot">.</span></h1>
+    <p class="lead">
+      Schön, dass Sie hier sind. Bitte geben Sie zum Starten den Zugangscode ein, den Sie von uns oder Ihrem Unternehmen erhalten haben.
+    </p>
+    <div class="code-card">
+      <input type="text" class="code-input" placeholder="Zugangscode" autocomplete="off" spellcheck="false" maxlength="20">
+      <button class="btn-primary" type="button">
+        <span>Weiter</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </main>
+  <footer class="footer">
+    <span>© 2026 traeis GmbH</span>
+    <span><a href="#">Datenschutz</a>&nbsp;&nbsp;&nbsp;<a href="#">Impressum</a></span>
+  </footer>
+</div>
+</body>
+</html>
